@@ -5,7 +5,6 @@ import com.example.RatingService.RatingService.services.RatingServcice;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController

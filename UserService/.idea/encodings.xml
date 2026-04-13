@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../HotelService/HotelService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../RatingService/RatingService/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../ServiceRegistryServer/ServiceRegistryServer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/UserServic/src/main/java" charset="UTF-8" />
   </component>
 </project>
