@@ -18,7 +18,4 @@ public interface UserService {
         User getUser(String userId);
 
         /*/todo: delete, update*/
-
-
-
 }
