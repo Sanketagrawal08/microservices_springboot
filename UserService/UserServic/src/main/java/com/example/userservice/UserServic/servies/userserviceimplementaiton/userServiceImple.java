@@ -3,6 +3,7 @@ package com.example.userservice.UserServic.servies.userserviceimplementaiton;
 import com.example.userservice.UserServic.entities.Hotel;
 import com.example.userservice.UserServic.entities.Ratings;
 import com.example.userservice.UserServic.entities.User;
+import com.example.userservice.UserServic.external.services.HotelService;
 import com.example.userservice.UserServic.repositories.UserRepository;
 import com.example.userservice.UserServic.servies.UserService;
 import org.slf4j.Logger;
@@ -27,6 +28,8 @@ public class userServiceImple implements UserService {
     @Autowired
     private RestTemplate restTemplate; //bean banana padega in
 
+    @Autowired
+    private HotelService hotelService;
 
     private Logger logger = LoggerFactory.getLogger(UserService.class);
 
@@ -54,7 +57,11 @@ public class userServiceImple implements UserService {
             // set it to ratings/return the rating
             // http://localhost:8082/hotels/kuckkuch
              ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTELSERVICE/hotel/"+ rating.getHotelId(), Hotel.class);
+
              Hotel hotel = forEntity.getBody();
+
+             //if using feign client then -
+            //Hotel hotel = hotelService.getHotel(rating.getHotelId);
 
              rating.setHotel(hotel);
 
@@ -74,5 +81,14 @@ public class userServiceImple implements UserService {
     public Optional<User> getUser(String userId) {
         return userRepository.findById(userId);
     }*/
+
+
+
+
+    // feign client --
+    // same as rest template but is a declarative http web client developed by netflix.
+    //if you want to use it feign , create an interface and annotate it.
+
+
 
 }
