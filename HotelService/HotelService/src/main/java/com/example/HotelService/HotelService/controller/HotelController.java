@@ -29,8 +29,8 @@ public class HotelController {
             return ResponseEntity.status(HttpStatus.FOUND).body(hotelService.get(id));
         }
 
-            @GetMapping
-            public List<Hotel> getAll(){
+        @GetMapping
+        public List<Hotel> getAll(){
             return hotelService.getAll();
         }
 

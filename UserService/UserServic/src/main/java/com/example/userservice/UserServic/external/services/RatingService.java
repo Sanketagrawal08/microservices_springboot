@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@FeignClient(name = "RATINGSERVICE")
+@FeignClient(name = "RatingService")
 public interface RatingService {
 
 

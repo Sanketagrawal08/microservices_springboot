@@ -46,7 +46,7 @@ public class userServiceImple implements UserService {
     @Override
     public User getUser(String userId) {
         User user=  userRepository.findById(userId).orElseThrow(()-> new RuntimeException("User not found with id" + userId));
-        Ratings[] forObject = restTemplate.getForObject("http://RATINGSERVICE/rating/users/"+user.getUserId() , Ratings[].class);
+        Ratings[] forObject = restTemplate.getForObject("http://RatingService/rating/users/"+user.getUserId() , Ratings[].class);
         /*ArrayList<Ratings> forObject = restTemplate.getForObject("http://localhost:8083/rating/users/" + user.getUserId() , ArrayList.class);*/
         logger.info("{}",forObject);
 
@@ -56,7 +56,7 @@ public class userServiceImple implements UserService {
             // api call to hotel service to get the hotel
             // set it to ratings/return the rating
             // http://localhost:8082/hotels/kuckkuch
-             ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HOTELSERVICE/hotel/"+ rating.getHotelId(), Hotel.class);
+             ResponseEntity<Hotel> forEntity = restTemplate.getForEntity("http://HotelService/hotel/"+ rating.getHotelId(), Hotel.class);
 
              Hotel hotel = forEntity.getBody();
 
