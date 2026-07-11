@@ -35,7 +35,7 @@ public class UserController {
   //  @Retry(name="ratingHotelService" , fallbackMethod = "ratingHotelFallback")
     @RateLimiter(name="ratingHotelServiceRateLimit" , fallbackMethod = "ratingHotelFallback")
     public  ResponseEntity<User> getSingleUser(@PathVariable String userId){
-        log.info("tried" + trycount);
+        log.info("tried requesting - " + trycount + " times ");
         trycount++;
         User user  = userService.getUser(userId);
         return ResponseEntity.ok(user);
